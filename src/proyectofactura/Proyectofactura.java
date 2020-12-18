@@ -16,7 +16,6 @@ public class Proyectofactura {
      */
     public static void main(String[] args) {
         menus.MenuRoles();
-      
     }
     
 }

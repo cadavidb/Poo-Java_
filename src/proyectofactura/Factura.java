@@ -34,5 +34,4 @@ public class Factura {
     public void setCliente(Cliente Cliente) {
         Factura.Cliente = Cliente;
     }
-
 }

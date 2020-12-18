@@ -20,6 +20,7 @@ public class Persona {
     }
 
     public void setTipoDoc(String TipoDoc) {
+       
         this.TipoDoc = TipoDoc;
     }
 

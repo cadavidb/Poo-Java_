@@ -8,10 +8,13 @@ public class menus {
     static int acc = 0;
     static ArrayList<producto_c> pedido = new ArrayList<>();
     static ArrayList<Factura> facturas= new ArrayList<>();
-    static boolean existenciaP=false;
+    static ArrayList<Cliente> ListaClientes= new ArrayList<>();
+    static int totalF=0;
+    
+    
+
+    static boolean existenciaP=false;//change
     static boolean proveedoresE=false;
-
-
 
 
     public static void showdataFacturas(){
@@ -20,7 +23,7 @@ public class menus {
         if (!facturas.isEmpty()) {
             
             for (int i = 0; i <facturas.size() ; i++) {
-            facturas.get(i).getCliente().Show();
+            ListaClientes.get(i).Show();
             }
         }else{
             System.out.println("No se han generado facturas aun");
@@ -198,8 +201,10 @@ public class menus {
         productosClientes.setNombre(nombre);
         productosClientes.setPrecio(precio);
         productosClientes.setCantidad(cantidad);
-        int total = cantidad * precio;
-        productosClientes.setTotal(total);
+        int totalu= cantidad * precio;
+        productosClientes.setTotal(totalu);
+        totalF+=totalu;
+        
 
         DetalleFactura detalleF = new DetalleFactura(productosClientes, cantidad);
         detalleF.setCantidad(cantidad);
@@ -223,6 +228,7 @@ public class menus {
                  WriteT("ingresa el telefono");
                  String tel=Leer().nextLine();
                   Cliente cliente = new Cliente(tipod,document,direccion,tel);
+                  ListaClientes.add(cliente);
                   Factura fact = new Factura();
                   fact.setCliente(cliente);
                   facturas.add(fact);
@@ -234,14 +240,15 @@ public class menus {
     }
 
     public static void ImprimirF() {
-
+        
         DetalleFactura.Show();
 
     }
 
     public static void MenuCajero() {
+        existenciaP=true;
         System.out.println("***********Menú Cajero***********");
-        System.out.println("1.)facturar\n 2.)Ver factura guardadas(cliente)\n 3.)borrar factura\n 4.)atras\n 0.)salir\n");
+        System.out.println("1.)facturar\n2.)Ver factura guardadas(cliente)\n3.)borrar factura\n4.)atras\n0.)salir\n");
         byte eleccion = Leer().nextByte();
 
         switch (eleccion) {

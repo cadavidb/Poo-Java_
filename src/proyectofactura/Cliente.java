@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Cliente extends Persona {
 
-    public static ArrayList<Cliente> Lista;
+    
 
     public Cliente(String TipoDoc, long NoDocumento, String Direccion, String Telefono) {
         super(TipoDoc, NoDocumento, Direccion, Telefono);
@@ -25,7 +25,7 @@ public class Cliente extends Persona {
         System.out.println("Tipo Documento: " + this.getTipoDoc() +"\n"
         + "Numero Documento: "  + this.getNoDocumento() + "\n"
         + "Direccion: " + this.getDireccion() +  "\n"
-        + " Telefono: " + this.getTelefono() );
+        + "Telefono: " + this.getTelefono() );
 
     }
 }
